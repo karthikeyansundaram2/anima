@@ -1259,7 +1259,7 @@ function build(T, { statics = [], verify = false, poses = null, strict = true, f
     seconds: (Date.now() - started) / 1000,
   };
   const out = { svg: markup, data: packed, css: TURN_CSS, report, scene, frames, planesByName };
-  out.layerSvg = (name, { width, height, label = "" }) => `<svg xmlns="http://www.w3.org/2000/svg" class="iso-svg iso-live iso-layer" data-live="${esc(name)}" viewBox="0 0 ${width} ${height}" aria-hidden="true"${label ? ` aria-label="${esc(label)}"` : ""}>${markup[name]}</svg>`;
+  out.layerSvg = (name, { width, height, label = "" }) => `<svg xmlns="http://www.w3.org/2000/svg" class="iso-svg iso-live iso-layer" data-live="${esc(name)}" viewBox="0 0 ${width} ${height}" role="img" tabindex="0"${label ? ` aria-label="${esc(label)}"` : ""}>${markup[name]}</svg>`;
   if (verify) out.verify = verifyData(T, statics);
   T.built = out;
   T.data = packed;
